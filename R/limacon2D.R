@@ -1,4 +1,4 @@
-casella2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL){
+limacon2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL){
   
   if(ncol(dat)!=2){
     stop("Data must be bivariate.")
