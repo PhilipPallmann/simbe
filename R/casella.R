@@ -23,7 +23,7 @@ casella <- function(dat, alpha=0.1, steps=100){
   
   crCas <- cbind(grid, findcrCas)[findcrCas==1, ]
   
-  Cas0 <- t(apply(crCas[, 1:2], 2, range, na.rm=TRUE))
+  Cas0 <- t(apply(crCas[, -(p + 1)], 2, range, na.rm=TRUE))
   
   if(min(abs(Cas0[, 1] - est + 2 * poolvar)) < 0.001 | min(abs(Cas0[, 2] - est - 2 * poolvar)) < 0.001){
     
