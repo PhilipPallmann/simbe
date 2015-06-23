@@ -17,7 +17,7 @@ limacon <- function(dat, alpha=0.1, steps=100){
   grid <- expand.grid(togrid)
   
   findcrLim <- apply(grid, 1, function(x){
-    theta <- matrix(x, 2)
+    theta <- matrix(x, p)
     ((t(theta) %*% est) / sqrt((t(theta) %*% cov %*% theta) / n) + qt(1 - alpha, df)) >
       ((t(theta) %*% theta) / sqrt((t(theta) %*% cov %*% theta) / n))
   })
@@ -37,7 +37,7 @@ limacon <- function(dat, alpha=0.1, steps=100){
     grid2 <- expand.grid(togrid2)
     
     findcrLim2 <- apply(grid2, 1, function(x){
-      theta <- matrix(x, 2)
+      theta <- matrix(x, p)
       ((t(theta) %*% est) / sqrt((t(theta) %*% cov %*% theta) / n) + qt(1 - alpha, df)) >
         ((t(theta) %*% theta) / sqrt((t(theta) %*% cov %*% theta) / n))
     })

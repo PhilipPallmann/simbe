@@ -1,4 +1,4 @@
-limacon2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL){
+hotelling2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL){
   
   if(ncol(dat)!=2){
     stop("Data must be bivariate.")
@@ -19,13 +19,12 @@ limacon2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.
   
   grid <- expand.grid(togrid)
   
-  findcrLim <- apply(grid, 1, function(x){
+  findcrHot <- apply(grid, 1, function(x){
     theta <- matrix(x, 2)
-    ((t(theta) %*% est) / sqrt((t(theta) %*% cov %*% theta) / n) + qt(1 - alpha, df)) >
-      ((t(theta) %*% theta) / sqrt((t(theta) %*% cov %*% theta) / n))
+    (n * t(est - theta) %*% solve(cov) %*% (est - theta)) < qf(p=alpha, df1=2, df2=df - 1) * 2 * df / (df - 1)
   })
   
-  crLim <- cbind(grid, findcrLim)[findcrLim==1, ]
+  crHot <- cbind(grid, findcrHot)[findcrHot==1, ]
   
   if(is.null(axnames)==TRUE){
     axisnames <- colnames(dat)
@@ -34,9 +33,9 @@ limacon2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.
   }
   
   plot(0, xlim=log(plotrange), ylim=log(plotrange), las=1, xlab=axisnames[1], ylab=axisnames[2],
-       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main="Limacon")
+       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main="Hotelling")
   rect(log(1/equi), log(1/equi), log(equi), log(equi), col="gray95", border=NA)
-  points(crLim[, -3], pch=20)
+  points(crHot[, -3], pch=20)
   points(est, pch=19, col="white")
   
 }
