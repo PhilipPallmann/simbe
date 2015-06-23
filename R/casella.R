@@ -18,7 +18,7 @@ casella <- function(dat, alpha=0.1, steps=100){
   
   findcrCas <- apply(grid, 1, function(x){
     theta <- matrix(x, p)
-    sqrt(sum((theta - est)^2)) < (s * sqrt(2 * qf(p=1 - alpha, df1=2, df2=df)))
+    sqrt(sum((theta - est)^2)) < (s * sqrt(2 * qf(p=1 - alpha, df1=p, df2=df)))
   })
   
   crCas <- cbind(grid, findcrCas)[findcrCas==1, ]
@@ -37,7 +37,7 @@ casella <- function(dat, alpha=0.1, steps=100){
     
     findcrCas2 <- apply(grid2, 1, function(x){
       theta <- matrix(x, p)
-      sqrt(sum((theta - est)^2)) < (s * sqrt(2 * qf(p=1 - alpha, df1=2, df2=df)))
+      sqrt(sum((theta - est)^2)) < (s * sqrt(2 * qf(p=1 - alpha, df1=p, df2=df)))
     })
     
     crCas2 <- cbind(grid2, findcrCas2)[findcrCas2==1, ]
