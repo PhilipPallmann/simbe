@@ -19,7 +19,7 @@ hotelling <- function(dat, alpha=0.1, steps=100){
   findcrHot <- apply(grid, 1, function(x){
     theta <- matrix(x, p)
     (n * t(est - theta) %*% solve(cov) %*% (est - theta)) <
-      qf(p=alpha, df1=2, df2=df - p + 1) * p * df / (df - p + 1)
+      qf(p=1 - alpha, df1=2, df2=df - p + 1) * p * df / (df - p + 1)
   })
   
   crHot <- cbind(grid, findcrHot)[findcrHot==1, ]
@@ -39,7 +39,7 @@ hotelling <- function(dat, alpha=0.1, steps=100){
     findcrHot2 <- apply(grid2, 1, function(x){
       theta <- matrix(x, p)
       (n * t(est - theta) %*% solve(cov) %*% (est - theta)) <
-        qf(p=alpha, df1=2, df2=df - p + 1) * p * df / (df - p + 1)
+        qf(p=1 - alpha, df1=2, df2=df - p + 1) * p * df / (df - p + 1)
     })
     
     crHot2 <- cbind(grid2, findcrHot2)[findcrHot2==1, ]
@@ -69,7 +69,7 @@ hotelling <- function(dat, alpha=0.1, steps=100){
     FindcrHot <- apply(Grid, 1, function(x){
       theta <- matrix(x, 2)
       (n * t(est - theta) %*% solve(cov) %*% (est - theta)) <
-        qf(p=alpha, df1=2, df2=df - p + 1) * p * df / (df - p + 1)
+        qf(p=1 - alpha, df1=2, df2=df - p + 1) * p * df / (df - p + 1)
     })
     
     CrHot <- cbind(Grid, FindcrHot)[FindcrHot==1, ]

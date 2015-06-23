@@ -21,7 +21,7 @@ hotelling2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 
   
   findcrHot <- apply(grid, 1, function(x){
     theta <- matrix(x, 2)
-    (n * t(est - theta) %*% solve(cov) %*% (est - theta)) < qf(p=alpha, df1=2, df2=df - 1) * 2 * df / (df - 1)
+    (n * t(est - theta) %*% solve(cov) %*% (est - theta)) < qf(p=1 - alpha, df1=2, df2=df - 1) * 2 * df / (df - 1)
   })
   
   crHot <- cbind(grid, findcrHot)[findcrHot==1, ]
