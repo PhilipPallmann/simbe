@@ -1,4 +1,4 @@
-tseng2DExp <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL){
+usual2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL){
   
   if(ncol(dat)!=2){
     stop("Data must be bivariate.")
@@ -19,23 +19,23 @@ tseng2DExp <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1
   
   grid <- expand.grid(togrid)
   
-  findcrTse <- apply(grid, 1, function(x){
+  findcrUsu <- apply(grid, 1, function(x){
     theta <- x
-    (sqrt(sum(est^2))^2 / (2 * s2)) > qf(p=1 - alpha, df1=2, df2=df, ncp=(sqrt(sum(theta^2))^2 / s2))
+    sqrt(sum((est - theta)^2))^2 < (s2 * 2 * qf(p=1 - alpha, df1=2, df2=n - 1))
   })
   
-  crTse <- cbind(grid, findcrTse)[findcrTse==1, ]
+  crUsu <- cbind(grid, findcrUsu)[findcrUsu==1, ]
   
   if(is.null(axnames)==TRUE){
     axisnames <- colnames(dat)
   }else{
     axisnames <- axnames
   }
-    
+  
   plot(0, xlim=log(plotrange), ylim=log(plotrange), las=1, xlab=axisnames[1], ylab=axisnames[2],
-       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main="Tseng")
+       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main="Usual")
   rect(log(1/equi), log(1/equi), log(equi), log(equi), col="gray95", border=NA)
-  points(crTse[, -3], pch=20)
+  points(crUsu[, -3], pch=20)
   points(est, pch=19, col="white")
   
 }
