@@ -18,7 +18,7 @@ usual <- function(dat, alpha=0.1, steps=100){
   
   findcrUsu <- apply(grid, 1, function(x){
     theta <- x
-    sqrt(sum((est - theta)^2))^2 < (s2 * 2 * qf(p=1 - alpha, df1=2, df2=n - 1))
+    sqrt(sum((est - theta)^2))^2 < (s2 * p * qf(p=1 - alpha, df1=p, df2=n - 1))
   })
   
   crUsu <- cbind(grid, findcrUsu)[findcrUsu==1, ]
@@ -37,7 +37,7 @@ usual <- function(dat, alpha=0.1, steps=100){
     
     findcrUsu2 <- apply(grid2, 1, function(x){
       theta <- x
-      sqrt(sum((est - theta)^2))^2 < (s2 * 2 * qf(p=1 - alpha, df1=2, df2=n - 1))
+      sqrt(sum((est - theta)^2))^2 < (s2 * p * qf(p=1 - alpha, df1=p, df2=n - 1))
     })
     
     crUsu2 <- cbind(grid2, findcrUsu2)[findcrUsu2==1, ]
@@ -66,7 +66,7 @@ usual <- function(dat, alpha=0.1, steps=100){
     
     FindcrUsu <- apply(Grid, 1, function(x){
       theta <- x
-      sqrt(sum((est - theta)^2))^2 < (s2 * 2 * qf(p=1 - alpha, df1=2, df2=n - 1))
+      sqrt(sum((est - theta)^2))^2 < (s2 * p * qf(p=1 - alpha, df1=p, df2=n - 1))
     })
     
     CrUsu <- cbind(Grid, FindcrUsu)[FindcrUsu==1, ]

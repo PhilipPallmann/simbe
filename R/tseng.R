@@ -8,6 +8,8 @@ tseng <- function(dat, alpha=0.1, steps=100){
   poolvar <- var(as.vector(as.matrix(dat)))
   s2 <- poolvar / n
   
+  part1 <- sqrt(sum(est^2))^2 / (p * s2)
+  
   togrid <- list()
   
   for(i in 1:p){
@@ -18,7 +20,7 @@ tseng <- function(dat, alpha=0.1, steps=100){
   
   findcrTse <- apply(grid, 1, function(x){
     theta <- x
-    (sqrt(sum(est^2))^2 / (p * s2)) > qf(p=alpha, df1=p, df2=df, ncp=(sqrt(sum(theta^2))^2 / s2))
+    part1 > qf(p=alpha, df1=p, df2=df, ncp=(sqrt(sum(theta^2))^2 / s2))
   })
   
   crTse <- cbind(grid, findcrTse)[findcrTse==1, ]
@@ -47,7 +49,7 @@ tseng <- function(dat, alpha=0.1, steps=100){
       
       findcrTse2 <- apply(grid2, 1, function(x){
         theta <- x
-        (sqrt(sum(est^2))^2 / (p * s2)) > qf(p=alpha, df1=p, df2=df, ncp=(sqrt(sum(theta^2))^2 / s2))
+        part1 > qf(p=alpha, df1=p, df2=df, ncp=(sqrt(sum(theta^2))^2 / s2))
       })
       
       crTse2 <- cbind(grid2, findcrTse2)[findcrTse2==1, ]
@@ -76,7 +78,7 @@ tseng <- function(dat, alpha=0.1, steps=100){
       
       FindcrTse <- apply(Grid, 1, function(x){
         theta <- x
-        (sqrt(sum(est^2))^2 / (p * s2)) > qf(p=alpha, df1=p, df2=df, ncp=(sqrt(sum(theta^2))^2 / s2))
+        part1 > qf(p=alpha, df1=p, df2=df, ncp=(sqrt(sum(theta^2))^2 / s2))
       })
       
       CrTse <- cbind(Grid, FindcrTse)[FindcrTse==1, ]
