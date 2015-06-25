@@ -17,7 +17,7 @@ casella <- function(dat, alpha=0.1, steps=100){
     JSplus <- JSfactor * est
   }
   
-  cond <- (sum(est^2)) / poolvar) < (p * qf(p=1 - alpha, df1=p, df2=df)) # or poolvar/n???
+  cond <- (sum(est^2) / poolvar) < (p * qf(p=1 - alpha, df1=p, df2=df)) # or poolvar/n???
   
   if(cond==TRUE){
     vE2 <- (1 - a/(p * qf(p=1 - alpha, df1=p, df2=df))) *
