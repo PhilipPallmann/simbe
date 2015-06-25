@@ -9,7 +9,7 @@ casella <- function(dat, alpha=0.1, steps=100){
   poolvar <- var(as.vector(as.matrix(dat)))
   s <- sqrt(poolvar / n)
   
-  JSfactor <- (1 - (a * poolvar) / sum(est^2)) # or poolvar/n???
+  JSfactor <- (1 - (a * (poolvar/n)) / sum(est^2)) # or just poolvar???
   
   if(JSfactor < 0){
     JSplus <- est
@@ -17,7 +17,7 @@ casella <- function(dat, alpha=0.1, steps=100){
     JSplus <- JSfactor * est
   }
   
-  cond <- (sum(est^2) / poolvar) < (p * qf(p=1 - alpha, df1=p, df2=df)) # or poolvar/n???
+  cond <- (sum(est^2) / (poolvar/n)) < (p * qf(p=1 - alpha, df1=p, df2=df)) # or just poolvar???
   
   if(cond==TRUE){
     vE2 <- (1 - a/(p * qf(p=1 - alpha, df1=p, df2=df))) *
