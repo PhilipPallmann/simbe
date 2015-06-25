@@ -3,10 +3,29 @@ casella <- function(dat, alpha=0.1, steps=100){
   n <- nrow(dat)
   p <- ncol(dat)
   df <- n - 1
+  a <- (p - 2) * (df / (df + 2))
   
   est <- matrix(colMeans(dat), p)
   poolvar <- var(as.vector(as.matrix(dat)))
   s <- sqrt(poolvar / n)
+  
+  JSfactor <- (1 - (a * poolvar) / sum(est^2)) # or poolvar/n???
+  
+  if(JSfactor < 0){
+    JSplus <- est
+  }else{
+    JSplus <- JSfactor * est
+  }
+  
+  cond <- (sum(est^2)) / poolvar) < (p * qf(p=1 - alpha, df1=p, df2=df)) # or poolvar/n???
+  
+  if(cond==TRUE){
+    vE2 <- (1 - a/(p * qf(p=1 - alpha, df1=p, df2=df))) *
+      (p * qf(p=1 - alpha, df1=p, df2=df) - p * log(1 - a/(p * qf(p=1 - alpha, df1=p, df2=df))))
+  }else{
+    vE2 <- (1 - a/(p * qf(p=1 - alpha, df1=p, df2=df))) *
+      (p * qf(p=1 - alpha, df1=p, df2=df) - p * log(1 - a/(p * qf(p=1 - alpha, df1=p, df2=df))))
+  }
   
   togrid <- list()
   
@@ -18,7 +37,7 @@ casella <- function(dat, alpha=0.1, steps=100){
   
   findcrCas <- apply(grid, 1, function(x){
     theta <- matrix(x, p)
-    sqrt(sum((theta - est)^2)) < (s * sqrt(2 * qf(p=1 - alpha, df1=p, df2=df)))
+    sqrt(sum((theta - JSplus)^2)) < (s * sqrt(vE2))
   })
   
   crCas <- cbind(grid, findcrCas)[findcrCas==1, ]
@@ -37,7 +56,7 @@ casella <- function(dat, alpha=0.1, steps=100){
     
     findcrCas2 <- apply(grid2, 1, function(x){
       theta <- matrix(x, p)
-      sqrt(sum((theta - est)^2)) < (s * sqrt(2 * qf(p=1 - alpha, df1=p, df2=df)))
+      sqrt(sum((theta - JSplus)^2)) < (s * sqrt(vE2))
     })
     
     crCas2 <- cbind(grid2, findcrCas2)[findcrCas2==1, ]
@@ -66,7 +85,7 @@ casella <- function(dat, alpha=0.1, steps=100){
     
     FindcrCas <- apply(Grid, 1, function(x){
       theta <- matrix(x, 2)
-      sqrt(sum((theta - est)^2)) < (s * sqrt(2 * qf(p=1 - alpha, df1=2, df2=df)))
+      sqrt(sum((theta - JSplus)^2)) < (s * sqrt(vE2))
     })
     
     CrCas <- cbind(Grid, FindcrCas)[FindcrCas==1, ]
