@@ -34,7 +34,7 @@ limasym2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.
   }
   
   plot(0, xlim=log(plotrange), ylim=log(plotrange), las=1, xlab=axisnames[1], ylab=axisnames[2],
-       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main="Limacon")
+       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main="Limacon (asympt.)")
   rect(log(1/equi), log(1/equi), log(equi), log(equi), col="gray95", border=NA)
   points(crLim[, -3], pch=20)
   points(est, pch=19, col="white")
