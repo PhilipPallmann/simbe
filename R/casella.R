@@ -98,7 +98,7 @@ casella <- function(dat, alpha=0.1, steps=100){
     
   }
   
-  CasOut <- cbind(est, Cas)
+  CasOut <- cbind(JSplus, Cas)
   rownames(CasOut) <- colnames(dat)
   colnames(CasOut) <- c("estimate", "lower", "upper")
   
