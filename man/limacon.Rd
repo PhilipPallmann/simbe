@@ -26,6 +26,8 @@ Lawrence D. Brown, George Casella and J. T. Gene Hwang (1995) Optimal confidence
 
 \note{xxx}
 
+\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+
 \seealso{xxx
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }

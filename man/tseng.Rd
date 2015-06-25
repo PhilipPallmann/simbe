@@ -22,6 +22,8 @@
 
 \author{Philip Pallmann}
 
+\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+
 \note{When the estimates are close to zero, the confidence region may not exist.}
 
 \seealso{xxx

@@ -26,6 +26,8 @@ Weizhen Wang, J. T. Gene Hwang & Anirban DasGupta (1999) Statistical tests for m
 
 \note{xxx}
 
+\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+
 \seealso{xxx
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }

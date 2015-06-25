@@ -33,7 +33,7 @@ Guilbaud
 
 \author{Philip Pallmann}
 
-\note{xxx
+\note{xxx not for p greater than 2
 %%  ~~further notes~~
 }
 
