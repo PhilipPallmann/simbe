@@ -1,2 +1,2 @@
 exportPattern("^[[:alpha:]]+")
-import(boot)
+import(boot, KernSmooth)

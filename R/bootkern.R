@@ -1,4 +1,4 @@
-bootkern2D <- function(dat, alpha=0.1, nboot=10000, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL){
+bootkern <- function(dat, alpha=0.1, nboot=10000){
   
   if(ncol(dat)!=2){
     stop("Data must be bivariate.")
@@ -27,21 +27,12 @@ bootkern2D <- function(dat, alpha=0.1, nboot=10000, equi=1.25, plotrange=c(0.77,
   K$truefalse <- as.vector(KERN)
   K <- K[K$truefalse==1, ]
   
-  cint <- rbind(range(K$Var1), range(K$Var2))
+  Boo <- rbind(range(K$Var1), range(K$Var2))
   
-  hu <- chull(K[, -3])
-  hull <- c(hu, hu[1])
+  BooOut <- cbind(est, Boo)
+  rownames(BooOut) <- colnames(dat)
+  colnames(BooOut) <- c("estimate", "lower", "upper")
   
-  if(is.null(axnames)==TRUE){
-    axisnames <- colnames(dat)
-  }else{
-    axisnames <- axnames
-  }
-  
-  plot(0, xlim=log(plotrange), ylim=log(plotrange), las=1, xlab=axisnames[1], ylab=axisnames[2],
-       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main="Casella")
-  rect(log(1/equi), log(1/equi), log(equi), log(equi), col="gray95", border=NA)
-  polygon(K[hull, ], col="black")
-  points(est[1], est[2], pch=19, col="white")
+  return(BooOut)
   
 }

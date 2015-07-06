@@ -1,25 +1,22 @@
-\name{bootkern2D}
+\name{bootkern}
 
-\alias{bootkern2D}
+\alias{bootkern}
 
-\title{Plot bivariate simultaneous confidence region using nonparametric bootstrapping and bivariate kernel density estimation}
+\title{Simultaneous confidence bounds using nonparametric bootstrapping and bivariate kernel density estimation}
 
 \description{xxx}
 
-\usage{bootkern2D(dat, alpha=0.1, nboot=10000, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL)}
+\usage{bootkern(dat, alpha=0.1, nboot=10000)}
 
 \arguments{
   \item{dat}{xxx}
   \item{alpha}{xxx}
   \item{nboot}{xxx}
-  \item{equi}{xxx}
-  \item{plotrange}{xxx}
-  \item{axnames}{xxx}
 }
 
 \details{xxx}
 
-\value{xxx}
+\value{A matrix of the parameter estimates and (marginalized) simultaneous confidence intervals.}
 
 \references{A. C. Davison and D. V. Hinkley (1997) Bootstrap Methods and their Application. Cambridge University Press, New York, NY. ISBN 978-0-521-57391-2.
 
@@ -31,9 +28,9 @@ Matt P. Wand and M. Chris Jones (1995) Kernel Smoothing. Chapman and Hall, Londo
 
 \author{Philip Pallmann}
 
-\note{xxx
-%%  ~~further notes~~
-}
+\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+
+\note{Only for 2 dimensions so far!}
 
 \seealso{xxx
 %% ~~objects to See Also as \code{\link{help}}, ~~~
@@ -42,8 +39,8 @@ Matt P. Wand and M. Chris Jones (1995) Kernel Smoothing. Chapman and Hall, Londo
 \examples{
 library("mvtnorm")
 mydata <- rmvnorm(50, mean=rep(0.1, 2), sigma=diag(2) * 0.05)
-bootkern2D(mydata, axnames=c(expression(paste(Delta, " log(AUC)")),
-           expression(paste(Delta, " log(Cmax)"))))
+colnames(mydata) <- c("AUC", "Cmax")
+bootkern(mydata)
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the R documentation directory.

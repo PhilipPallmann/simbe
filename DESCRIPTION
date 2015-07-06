@@ -6,6 +6,6 @@ Date: 2015-06-19
 Authors@R: as.person(c("Philip Pallmann <p.pallmann@lancaster.ac.uk> [aut, cre]", "Dominic Magirr [ctb]"))
 Description: Simultaneous assessment of bioequivalence on multiple pharmacokinetic parameters (e.g., AUC and Cmax).
 License: GPL-2
-Imports: boot
+Imports: boot, KernSmooth
 Suggests: mvtnorm
 BugReports: https://github.com/PhilipPallmann/simbe/issues
