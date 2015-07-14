@@ -6,7 +6,7 @@
 
 \description{xxx}
 
-\usage{tseng2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL)}
+\usage{tseng2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL, main="Tseng")}
 
 \arguments{
   \item{dat}{xxx}
@@ -15,6 +15,7 @@
   \item{equi}{xxx}
   \item{plotrange}{xxx}
   \item{axnames}{xxx}
+  \item{main}{xxx}
 }
 
 \details{xxx}

@@ -1,4 +1,4 @@
-bootkern2D <- function(dat, alpha=0.1, nboot=10000, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL){
+bootkern2D <- function(dat, alpha=0.1, nboot=10000, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL, main="Bootstrap"){
   
   if(ncol(dat)!=2){
     stop("Data must be bivariate.")
@@ -39,7 +39,7 @@ bootkern2D <- function(dat, alpha=0.1, nboot=10000, equi=1.25, plotrange=c(0.77,
   }
   
   plot(0, xlim=log(plotrange), ylim=log(plotrange), las=1, xlab=axisnames[1], ylab=axisnames[2],
-       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main="Bootstrap")
+       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main=main)
   rect(log(1/equi), log(1/equi), log(equi), log(equi), col="gray95", border=NA)
   polygon(K[hull, ], col="black")
   points(est[1], est[2], pch=19, col="white")
