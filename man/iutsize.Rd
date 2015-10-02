@@ -5,7 +5,7 @@
 
 \description{intersection union test}
 
-\usage{iutsize(p, n, alpha=0.1, sim=1e5)}
+\usage{iutsize(p, n, alpha=0.1, sim=1e6)}
 
 \arguments{
   \item{p}{xxx}
@@ -14,7 +14,7 @@
   \item{sim}{xxx}
 }
 
-\details{}
+\details{xxx}
 
 \value{A numeric value giving the actual size of the test.}
 

@@ -6,7 +6,8 @@
 
 \description{xxx}
 
-\usage{bootkern2D(dat, alpha=0.1, nboot=10000, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL, main="Bootstrap")}
+\usage{bootkern2D(dat, alpha=0.1, nboot=10000, equi=1.25, plotrange=c(0.77, 1.3),
+           axnames=NULL, main="Bootstrap")}
 
 \arguments{
   \item{dat}{xxx}

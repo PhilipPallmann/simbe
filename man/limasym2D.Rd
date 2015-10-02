@@ -6,7 +6,8 @@
 
 \description{xxx}
 
-\usage{limasym2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL, main="Limacon (asympt.)")}
+\usage{limasym2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3),
+          axnames=NULL, main="Limacon (asympt.)")}
 
 \arguments{
   \item{dat}{xxx}

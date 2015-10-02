@@ -6,7 +6,8 @@
 
 \description{xxx}
 
-\usage{limacon2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL, main="Limacon")}
+\usage{limacon2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3),
+          axnames=NULL, main="Limacon")}
 
 \arguments{
   \item{dat}{xxx}
