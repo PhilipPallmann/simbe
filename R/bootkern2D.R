@@ -43,6 +43,5 @@ bootkern2D <- function(dat, alpha=0.1, nboot=10000, equi=1.25, plotrange=c(0.77,
   rect(log(1/equi), log(1/equi), log(equi), log(equi), col="gray95", border=NA)
   polygon(K[hull, ], col="black")
   points(est[1], est[2], pch=19, col="white")
-  points(0, 0, pch="+", col="white")
   
 }
