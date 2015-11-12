@@ -37,5 +37,6 @@ hotelling2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 
   rect(log(1/equi), log(1/equi), log(equi), log(equi), col="gray95", border=NA)
   points(crHot[, -3], pch=20)
   points(est[1], est[2], pch=19, col="white")
+  points(0, 0, pch="+", col="white")
   
 }
