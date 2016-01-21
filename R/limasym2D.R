@@ -33,11 +33,13 @@ limasym2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.
     axisnames <- axnames
   }
   
+  par(mar=c(5, 5, 4, 2))
   plot(0, xlim=log(plotrange), ylim=log(plotrange), las=1, xlab=axisnames[1], ylab=axisnames[2],
-       cex.main=2.5, cex.axis=1.5, cex.lab=1.5, main=main)
+       cex.main=2.5, cex.axis=1.5, cex.lab=1.7, main=main)
   rect(log(1/equi), log(1/equi), log(equi), log(equi), col="gray95", border=NA)
   points(crLim[, -3], pch=20)
   points(est[1], est[2], pch=19, col="white")
   points(0, 0, pch="+", col="white", cex=2)
+  par(mar=c(5, 4, 4, 2))
   
 }
