@@ -2,7 +2,7 @@
 
 \alias{bootkern}
 
-\title{Simultaneous confidence bounds using nonparametric bootstrapping and bivariate kernel density estimation}
+\title{Simultaneous confidence bounds for a multivariate (normal) mean using nonparametric bootstrapping and bivariate kernel density estimation}
 
 \description{xxx}
 
@@ -28,7 +28,7 @@ Matt P. Wand and M. Chris Jones (1995) Kernel Smoothing. Chapman and Hall, Londo
 
 \author{Philip Pallmann}
 
-\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+\section{Warning}{Functionality for 3 or more parameters has not yet been thoroughly tested.}
 
 \note{Only for 2 dimensions so far!}
 
@@ -43,5 +43,4 @@ colnames(mydata) <- c("AUC", "Cmax")
 bootkern(mydata)
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the R documentation directory.
-\keyword{ ~kwd1 }
+\keyword{multivariate}

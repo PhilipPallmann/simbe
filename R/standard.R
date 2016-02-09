@@ -1,4 +1,4 @@
-usual <- function(dat, alpha=0.1, steps=100){
+standard <- function(dat, alpha=0.1, steps=100){
   
   n <- nrow(dat)
   p <- ncol(dat)

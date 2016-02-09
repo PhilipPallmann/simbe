@@ -1,13 +1,13 @@
-\name{usual2D}
+\name{standard2D}
 
-\alias{usual2D}
+\alias{standard2D}
 
-\title{Plot bivariate simultaneous confidence region termed ``usual" by Casella & Hwang (1983)}
+\title{Plot bivariate standard simultaneous confidence region}
 
 \description{xxx}
 
-\usage{usual2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3),
-        axnames=NULL, main="Usual")}
+\usage{standard2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3),
+        axnames=NULL, main="Standard")}
 
 \arguments{
   \item{dat}{xxx}
@@ -38,8 +38,8 @@
 \examples{
 library("mvtnorm")
 mydata <- rmvnorm(50, mean=rep(0.1, 2), sigma=diag(2) * 0.05)
-usual2D(mydata, axnames=c(expression(paste(Delta, " log(AUC)")),
-        expression(paste(Delta, " log(Cmax)"))))
+standard2D(mydata, axnames=c(expression(paste(Delta, " log(AUC)")),
+           expression(paste(Delta, " log(Cmax)"))))
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the R documentation directory.

@@ -2,7 +2,7 @@
 
 \alias{limasym}
 
-\title{Simultaneous confidence bounds for a multivariate (?) Gaussian}
+\title{Simultaneous confidence bounds for a multivariate normal mean using the minimum volume method}
 
 \description{xxx}
 
@@ -26,7 +26,7 @@ Lawrence D. Brown, George Casella and J. T. Gene Hwang (1995) Optimal confidence
 
 \note{xxx}
 
-\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+\section{Warning}{Functionality for 3 or more parameters has not yet been thoroughly tested.}
 
 \seealso{xxx
 %% ~~objects to See Also as \code{\link{help}}, ~~~
@@ -39,5 +39,4 @@ colnames(mydata) <- c("AUC", "Cmax", "xyz")
 limasym(mydata, steps=10)
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the R documentation directory.
-\keyword{ ~kwd1 }
+\keyword{multivariate}

@@ -1,12 +1,12 @@
-\name{usualcorr}
+\name{standardcorr}
 
-\alias{usualcorr}
+\alias{standardcorr}
 
-\title{Simultaneous confidence bounds for a multivariate (?) Gaussian}
+\title{Simultaneous confidence bounds for a multivariate normal mean using the standard method}
 
 \description{xxx}
 
-\usage{usualcorr(dat, alpha=0.1, steps=100)}
+\usage{standardcorr(dat, alpha=0.1, steps=100)}
 
 \arguments{
   \item{dat}{xxx}
@@ -24,7 +24,7 @@
 
 \note{xxx}
 
-\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+\section{Warning}{Functionality for 3 or more parameters has not yet been thoroughly tested.}
 
 \seealso{xxx
 %% ~~objects to See Also as \code{\link{help}}, ~~~
@@ -34,8 +34,7 @@
 library("mvtnorm")
 mydata <- rmvnorm(50, mean=rep(0.1, 3), sigma=(diag(3) * 0.05) + 0.05)
 colnames(mydata) <- c("AUC", "Cmax", "xyz")
-usualcorr(mydata, steps=10)
+standardcorr(mydata, steps=10)
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the R documentation directory.
-\keyword{ ~kwd1 }
+\keyword{multivariate}

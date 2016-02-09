@@ -2,7 +2,7 @@
 
 \alias{hotelling}
 
-\title{Simultaneous confidence bounds for a multivariate (?) Gaussian}
+\title{Simultaneous confidence bounds for a multivariate normal mean using a Hotelling-type confidence ellipse}
 
 \description{xxx}
 
@@ -26,7 +26,7 @@ Weizhen Wang, J. T. Gene Hwang & Anirban DasGupta (1999) Statistical tests for m
 
 \note{xxx}
 
-\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+\section{Warning}{Functionality for 3 or more parameters has not yet been thoroughly tested.}
 
 \seealso{xxx
 %% ~~objects to See Also as \code{\link{help}}, ~~~
@@ -39,5 +39,4 @@ colnames(mydata) <- c("AUC", "Cmax", "xyz")
 hotelling(mydata, steps=10)
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the R documentation directory.
-\keyword{ ~kwd1 }
+\keyword{multivariate}

@@ -1,5 +1,5 @@
-usualcorr2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL,
-                        main="Usual (corr.)"){
+standardcorr2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL,
+                           main="Standard (corr.)"){
   
   if(ncol(dat)!=2){
     stop("Data must be bivariate.")

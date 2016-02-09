@@ -2,7 +2,7 @@
 
 \alias{tseng}
 
-\title{Simultaneous confidence bounds for a multivariate (?) Gaussian}
+\title{Simultaneous confidence bounds for a multivariate normal mean using Tseng's minimum expected length method}
 
 \description{xxx}
 
@@ -22,7 +22,7 @@
 
 \author{Philip Pallmann}
 
-\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+\section{Warning}{Functionality for 3 or more parameters has not yet been thoroughly tested.}
 
 \note{When the estimates are close to zero, the confidence region may not exist.}
 
@@ -37,5 +37,4 @@ colnames(mydata) <- c("AUC", "Cmax", "xyz")
 tseng(mydata, steps=10)
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the R documentation directory.
-\keyword{ ~kwd1 }
+\keyword{multivariate}

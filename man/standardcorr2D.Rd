@@ -1,13 +1,13 @@
-\name{usualcorr2D}
+\name{standardcorr2D}
 
-\alias{usualcorr2D}
+\alias{standardcorr2D}
 
 \title{Plot bivariate simultaneous confidence region xxx}
 
 \description{xxx}
 
-\usage{usualcorr2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3),
-            axnames=NULL, main="Usual (corr.)")}
+\usage{standardcorr2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3),
+                      axnames=NULL, main="Standard (corr.)")}
 
 \arguments{
   \item{dat}{xxx}
@@ -38,8 +38,8 @@
 \examples{
 library("mvtnorm")
 mydata <- rmvnorm(50, mean=rep(0.1, 2), sigma=(diag(2) * 0.05) + 0.05)
-usualcorr2D(mydata, axnames=c(expression(paste(Delta, " log(AUC)")),
-            expression(paste(Delta, " log(Cmax)"))))
+standardcorr2D(mydata, axnames=c(expression(paste(Delta, " log(AUC)")),
+               expression(paste(Delta, " log(Cmax)"))))
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the R documentation directory.

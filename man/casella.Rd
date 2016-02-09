@@ -2,7 +2,7 @@
 
 \alias{casella}
 
-\title{Simultaneous confidence bounds for a multivariate (?) Gaussian}
+\title{Simultaneous confidence bounds for a multivariate normal mean using Casella & Hwang's empirical Bayes method}
 
 \description{xxx}
 
@@ -24,7 +24,7 @@
 
 \note{xxx}
 
-\section{Warning}{Functionality for 3 or more parameters has not yet been throughly tested.}
+\section{Warning}{Functionality for 3 or more parameters has not yet been thoroughly tested.}
 
 \seealso{xxx
 %% ~~objects to See Also as \code{\link{help}}, ~~~
@@ -37,5 +37,4 @@ colnames(mydata) <- c("AUC", "Cmax", "xyz")
 casella(mydata, steps=10)
 }
 
-% Add one or more standard keywords, see file 'KEYWORDS' in the R documentation directory.
-\keyword{ ~kwd1 }
+\keyword{multivariate}
