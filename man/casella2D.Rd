@@ -6,13 +6,14 @@
 
 \description{xxx}
 
-\usage{casella2D(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3),
-          axnames=NULL, main="Casella-Hwang")}
+\usage{casella2D(dat, alpha=0.1, steps=400, searchwidth=8, equi=1.25,
+                 plotrange=c(0.77, 1.3), axnames=NULL, main="Casella-Hwang")}
 
 \arguments{
   \item{dat}{xxx}
   \item{alpha}{xxx}
   \item{steps}{xxx}
+  \item{searchwidth}{times pooled variance}
   \item{equi}{xxx}
   \item{plotrange}{xxx}
   \item{axnames}{xxx}

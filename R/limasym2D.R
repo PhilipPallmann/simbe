@@ -1,4 +1,4 @@
-limasym2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL, main="Limacon (asympt.)"){
+limasym2D <- function(dat, alpha=0.1, steps=400, searchwidth=8, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL, main="Limacon (asympt.)"){
   
   if(ncol(dat)!=2){
     stop("Data must be bivariate.")
@@ -14,7 +14,7 @@ limasym2D <- function(dat, alpha=0.1, steps=400, equi=1.25, plotrange=c(0.77, 1.
   togrid <- list()
   
   for(i in 1:2){
-    togrid[[i]] <- seq(est[i] - 8 * poolvar, est[i] + 8 * poolvar, length.out=steps)
+    togrid[[i]] <- seq(est[i] - searchwidth * poolvar, est[i] + searchwidth * poolvar, length.out=steps)
   }
   
   grid <- expand.grid(togrid)
