@@ -26,6 +26,11 @@ casella2D <- function(dat, alpha=0.1, steps=400, searchwidth=8, equi=1.25, plotr
   
   crCas <- cbind(grid, findcrCas)[findcrCas==1, ]
   
+  if(min(crCas[, 1])==min(grid[, 1]) | max(crCas[, 1])==max(grid[, 1]) |
+       min(crCas[, 2])==min(grid[, 2]) | max(crCas[, 2])==max(grid[, 2])){
+    warning("The search grid is too narrow, please increase searchwidth.")
+  }
+  
   if(is.null(axnames)==TRUE){
     axisnames <- colnames(dat)
   }else{

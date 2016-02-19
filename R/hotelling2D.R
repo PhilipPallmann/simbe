@@ -26,6 +26,11 @@ hotelling2D <- function(dat, alpha=0.1, steps=400, searchwidth=8, equi=1.25, plo
   
   crHot <- cbind(grid, findcrHot)[findcrHot==1, ]
   
+  if(min(crHot[, 1])==min(grid[, 1]) | max(crHot[, 1])==max(grid[, 1]) |
+       min(crHot[, 2])==min(grid[, 2]) | max(crHot[, 2])==max(grid[, 2])){
+    warning("The search grid is too narrow, please increase searchwidth.")
+  }
+  
   if(is.null(axnames)==TRUE){
     axisnames <- colnames(dat)
   }else{

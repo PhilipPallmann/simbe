@@ -26,6 +26,11 @@ standard2D <- function(dat, alpha=0.1, steps=400, searchwidth=8, equi=1.25, plot
   
   crUsu <- cbind(grid, findcrUsu)[findcrUsu==1, ]
   
+  if(min(crUsu[, 1])==min(grid[, 1]) | max(crUsu[, 1])==max(grid[, 1]) |
+       min(crUsu[, 2])==min(grid[, 2]) | max(crUsu[, 2])==max(grid[, 2])){
+    warning("The search grid is too narrow, please increase searchwidth.")
+  }
+  
   if(is.null(axnames)==TRUE){
     axisnames <- colnames(dat)
   }else{

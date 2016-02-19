@@ -27,6 +27,11 @@ limacon2D <- function(dat, alpha=0.1, steps=400, searchwidth=8, equi=1.25, plotr
   
   crLim <- cbind(grid, findcrLim)[findcrLim==1, ]
   
+  if(min(crLim[, 1])==min(grid[, 1]) | max(crLim[, 1])==max(grid[, 1]) |
+       min(crLim[, 2])==min(grid[, 2]) | max(crLim[, 2])==max(grid[, 2])){
+    warning("The search grid is too narrow, please increase searchwidth.")
+  }
+  
   if(is.null(axnames)==TRUE){
     axisnames <- colnames(dat)
   }else{

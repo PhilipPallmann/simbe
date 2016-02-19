@@ -26,6 +26,11 @@ tseng2D <- function(dat, alpha=0.1, steps=400, searchwidth=8, equi=1.25, plotran
   
   crTse <- cbind(grid, findcrTse)[findcrTse==1, ]
   
+  if(min(crTse[, 1])==min(grid[, 1]) | max(crTse[, 1])==max(grid[, 1]) |
+       min(crTse[, 2])==min(grid[, 2]) | max(crTse[, 2])==max(grid[, 2])){
+    warning("The search grid is too narrow, please increase searchwidth.")
+  }
+  
   if(is.null(axnames)==TRUE){
     axisnames <- colnames(dat)
   }else{
