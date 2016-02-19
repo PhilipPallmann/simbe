@@ -61,6 +61,28 @@ casella <- function(dat, alpha=0.1, steps=100){
     
     crCas2 <- cbind(grid2, findcrCas2)[findcrCas2==1, ]
     
+    if(min(crCas2[, 1])==min(grid2[, 1]) | max(crCas2[, 1])==max(grid2[, 1]) |
+         min(crCas2[, 2])==min(grid2[, 2]) | max(crCas2[, 2])==max(grid2[, 2])){
+      
+      togrid3 <- list()
+      
+      for(i in 1:p){
+        togrid3[[i]] <- seq(est[i] - 16 * poolvar, est[i] + 16 * poolvar, length.out=8 * steps)
+      }
+      
+      grid3 <- expand.grid(togrid3)
+      
+      findcrCas3 <- apply(grid3, 1, function(x){
+        theta <- matrix(x, p)
+        sqrt(sum((theta - JSplus)^2)) < (s * sqrt(vE2))
+      })
+      
+      crCas3 <- cbind(grid3, findcrCas3)[findcrCas3==1, ]
+      
+      crCas2 <- crCas3
+      
+    }
+    
     Cas0 <- t(apply(crCas2[, -(p + 1)], 2, range))
     
   }

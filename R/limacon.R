@@ -44,6 +44,29 @@ limacon <- function(dat, alpha=0.1, steps=100){
     
     crLim2 <- cbind(grid2, findcrLim2)[findcrLim2==1, ]
     
+    if(min(crLim2[, 1])==min(grid2[, 1]) | max(crLim2[, 1])==max(grid2[, 1]) |
+         min(crLim2[, 2])==min(grid2[, 2]) | max(crLim2[, 2])==max(grid2[, 2])){
+      
+      togrid3 <- list()
+      
+      for(i in 1:p){
+        togrid3[[i]] <- seq(est[i] - 16 * poolvar, est[i] + 16 * poolvar, length.out=8 * steps)
+      }
+      
+      grid3 <- expand.grid(togrid3)
+      
+      findcrLim3 <- apply(grid3, 1, function(x){
+        theta <- matrix(x, p)
+        ((t(theta) %*% est) / sqrt((t(theta) %*% cov %*% theta) / n) + qt(1 - alpha, df)) >
+          ((t(theta) %*% theta) / sqrt((t(theta) %*% cov %*% theta) / n))
+      })
+      
+      crLim3 <- cbind(grid3, findcrLim3)[findcrLim3==1, ]
+      
+      crLim2 <- crLim3
+      
+    }
+    
     Lim0 <- t(apply(crLim2[, -(p + 1)], 2, range))
     
   }

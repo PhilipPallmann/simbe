@@ -45,6 +45,29 @@ standardcorr <- function(dat, alpha=0.1, steps=100){
     
     crUsu2 <- cbind(grid2, findcrUsu2)[findcrUsu2==1, ]
     
+    if(min(crUsu2[, 1])==min(grid2[, 1]) | max(crUsu2[, 1])==max(grid2[, 1]) |
+         min(crUsu2[, 2])==min(grid2[, 2]) | max(crUsu2[, 2])==max(grid2[, 2])){
+      
+      togrid3 <- list()
+      
+      for(i in 1:p){
+        togrid3[[i]] <- seq(est[i] - 16 * poolvar, est[i] + 16 * poolvar, length.out=8 * steps)
+      }
+      
+      grid3 <- expand.grid(togrid3)
+      
+      findcrUsu3 <- apply(grid3, 1, function(x){
+        theta <- x
+        #sqrt(sum((est - theta)^2))^2 < (s2 * p * qf(p=1 - alpha, df1=p, df2=n - 1))
+        t(est - theta) %*% LambdaInv %*% (est - theta) < (p / (n - 1) * qf(p=1 - alpha, df1=p, df2=n - 1))
+      })
+      
+      crUsu3 <- cbind(grid3, findcrUsu3)[findcrUsu3==1, ]
+      
+      crUsu2 <- crUsu3
+      
+    }
+    
     Usu0 <- t(apply(crUsu2[, -(p + 1)], 2, range))
     
   }

@@ -54,6 +54,28 @@ tseng <- function(dat, alpha=0.1, steps=100){
       
       crTse2 <- cbind(grid2, findcrTse2)[findcrTse2==1, ]
       
+      if(min(crTse2[, 1])==min(grid2[, 1]) | max(crTse2[, 1])==max(grid2[, 1]) |
+           min(crTse2[, 2])==min(grid2[, 2]) | max(crTse2[, 2])==max(grid2[, 2])){
+        
+        togrid3 <- list()
+        
+        for(i in 1:p){
+          togrid3[[i]] <- seq(est[i] - 16 * poolvar, est[i] + 16 * poolvar, length.out=8 * steps)
+        }
+        
+        grid3 <- expand.grid(togrid3)
+        
+        findcrTse3 <- apply(grid3, 1, function(x){
+          theta <- x
+          part1 > qf(p=alpha, df1=p, df2=df, ncp=(sqrt(sum(theta^2))^2 / s2))
+        })
+        
+        crTse3 <- cbind(grid3, findcrTse3)[findcrTse3==1, ]
+        
+        crTse2 <- crTse3
+        
+      }
+      
       Tse0 <- t(apply(crTse2[, -(p + 1)], 2, range))
       
     }

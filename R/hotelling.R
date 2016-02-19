@@ -44,6 +44,29 @@ hotelling <- function(dat, alpha=0.1, steps=100){
     
     crHot2 <- cbind(grid2, findcrHot2)[findcrHot2==1, ]
     
+    if(min(crHot2[, 1])==min(grid2[, 1]) | max(crHot2[, 1])==max(grid2[, 1]) |
+         min(crHot2[, 2])==min(grid2[, 2]) | max(crHot2[, 2])==max(grid2[, 2])){
+      
+      togrid3 <- list()
+      
+      for(i in 1:p){
+        togrid3[[i]] <- seq(est[i] - 16 * poolvar, est[i] + 16 * poolvar, length.out=8 * steps)
+      }
+      
+      grid3 <- expand.grid(togrid3)
+      
+      findcrHot3 <- apply(grid3, 1, function(x){
+        theta <- matrix(x, p)
+        (n * t(est - theta) %*% solve(cov) %*% (est - theta)) <
+          qf(p=1 - alpha, df1=p, df2=df - p + 1) * p * df / (df - p + 1)
+      })
+      
+      crHot3 <- cbind(grid3, findcrHot3)[findcrHot3==1, ]
+      
+      crHot2 <- crHot3
+      
+    }
+    
     Hot0 <- t(apply(crHot2[, -(p + 1)], 2, range))
     
   }
