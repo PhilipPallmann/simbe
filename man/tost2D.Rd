@@ -2,9 +2,9 @@
 
 \alias{tost2D}
 
-\title{Plot bivariate (simultaneous) confidence intervals corresponding to two one-sided tests for two parameters}
+\title{}
 
-\description{xxx}
+\description{Plots (simultaneous) confidence intervals corresponding to the two one-sided tests (TOST) procedure for two parameters.}
 
 \usage{tost2D(dat, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3), axnames=NULL, main="TOST")}
 
