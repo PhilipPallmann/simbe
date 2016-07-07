@@ -2,7 +2,7 @@
 
 \alias{confset}
 
-\title{x}
+\title{Confidence regions around multivariate normal means}
 
 \description{Computes boundaries of (simultaneous) confidence regions around multivariate normal means using different methods, and projects the boundaries onto the axes.}
 
@@ -46,7 +46,6 @@ Weizhen Wang, J. T. Gene Hwang, Anirban DasGupta (1999) Statistical tests for mu
 # bootkern not included so far
 }
 
-
 \author{Philip Pallmann (\email{p.pallmann@lancaster.ac.uk})}
 
 \note{x}
@@ -62,12 +61,12 @@ colnames(mydata) <- LETTERS[1:3]
 
 # Compute boundaries of simultaneous 90% confidence regions
 
-confset(dat=mydata, method="standard.ind", alpha=0.1)
-confset(dat=mydata, method="standard.cor", alpha=0.1)
-confset(dat=mydata, method="hotelling", alpha=0.1)
-confset(dat=mydata, method="limacon.asy", alpha=0.1)
-confset(dat=mydata, method="limacon.fin", alpha=0.1)
-confset(dat=mydata, method="tseng", alpha=0.1)
+#confset(dat=mydata, method="standard.ind", alpha=0.1)
+#confset(dat=mydata, method="standard.cor", alpha=0.1)
+#confset(dat=mydata, method="hotelling", alpha=0.1)
+#confset(dat=mydata, method="limacon.asy", alpha=0.1)
+#confset(dat=mydata, method="limacon.fin", alpha=0.1)
+#confset(dat=mydata, method="tseng", alpha=0.1)
 
 }
 

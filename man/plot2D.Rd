@@ -78,18 +78,18 @@ ax <- c(expression(paste(Delta, " log(AUC)")), expression(paste(Delta, " log(Cma
 
 # Plot simultaneous 90% confidence regions
 
-plot2D(dat=mydata, method="standard.ind", alpha=0.1, axnames=ax, main="Standard")
-plot2D(dat=mydata, method="standard.cor", alpha=0.1, axnames=ax, main="Standard")
-plot2D(dat=mydata, method="hotelling", alpha=0.1, axnames=ax, main="Hotelling")
-plot2D(dat=mydata, method="limacon.asy", alpha=0.1, axnames=ax, main="Limacon")
-plot2D(dat=mydata, method="limacon.fin", alpha=0.1, axnames=ax, main="Limacon")
-plot2D(dat=mydata, method="tseng", alpha=0.1, axnames=ax, main="Tseng")
+#plot2D(dat=mydata, method="standard.ind", alpha=0.1, axnames=ax, main="Standard")
+#plot2D(dat=mydata, method="standard.cor", alpha=0.1, axnames=ax, main="Standard")
+#plot2D(dat=mydata, method="hotelling", alpha=0.1, axnames=ax, main="Hotelling")
+#plot2D(dat=mydata, method="limacon.asy", alpha=0.1, axnames=ax, main="Limacon")
+#plot2D(dat=mydata, method="limacon.fin", alpha=0.1, axnames=ax, main="Limacon")
+#plot2D(dat=mydata, method="tseng", alpha=0.1, axnames=ax, main="Tseng")
 
 # Plot simultaneous 90% confidence intervals
 
-plot2D(dat=mydata, method="tost", alpha=0.1, axnames=ax, main="TOST")
-plot2D(dat=mydata, method="expanded", alpha=0.1, axnames=ax, main="Expanded TOST")
-plot2D(dat=mydata, method="fixseq", alpha=0.1, axnames=ax, main="Fixed Sequence")
+#plot2D(dat=mydata, method="tost", alpha=0.1, axnames=ax, main="TOST")
+#plot2D(dat=mydata, method="expanded", alpha=0.1, axnames=ax, main="Expanded TOST")
+#plot2D(dat=mydata, method="fixseq", alpha=0.1, axnames=ax, main="Fixed Sequence")
 }
 
 \keyword{multivariate}

@@ -2,7 +2,7 @@ Package: simbe
 Type: Package
 Title: Simultaneous assessment of bioequivalence
 Version: 0.1
-Date: 2015-06-19
+Date: 2016-07-07
 Authors@R: as.person(c("Philip Pallmann <p.pallmann@lancaster.ac.uk> [aut, cre]", "Dominic Magirr [ctb]"))
 Description: Simultaneous assessment of bioequivalence on multiple pharmacokinetic parameters (e.g., AUC and Cmax).
 License: GPL-2

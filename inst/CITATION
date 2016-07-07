@@ -4,7 +4,7 @@ citEntry(entry = "Manual",
          title = "simbe: Simultaneous assessment of bioequivalence",
          author = personList(person(given="Philip", family="Pallmann")),
          year = "2016",
-         note = {R package version 0.1},
-         url = {https://github.com/PhilipPallmann/simbe},
+         note = "R package version 0.1",
+         url = "https://github.com/PhilipPallmann/simbe",
          textVersion = paste("Philip Pallmann (2016) simbe: Simultaneous assessment of bioequivalence. R package version 0.1. https://github.com/PhilipPallmann/simbe")
          )
