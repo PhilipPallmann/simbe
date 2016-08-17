@@ -1,0 +1,59 @@
+\name{plotMV2D}
+
+\alias{plotMV2D}
+
+\title{Plotting 2D confidence sets for normal mean and variance}
+
+\description{Creates graphs of (simultaneous) confidence regions for the mean and variance of a normal distribution using different methods.}
+
+\usage{plotMV2D(dat, method, alpha=0.1, axnames=c("Mean", "Variance"),
+                main="Title", col="black", steps=400, searchwidth=1)}
+
+\arguments{
+  \item{dat}{A vector of numeric values assumed to follow a normal distribution.}
+  \item{method}{A character string specifying the method to be used. See details for available \code{method}s.}
+  \item{alpha}{A numeric value giving the type I error level to be controlled. Default is \code{0.1}.}
+  \item{axnames}{A vector of two character strings giving the x and y axis labels.}
+  \item{main}{A character string giving the plot title.}
+  \item{col}{A character string specifying the colour of the plotted region or intervals.}
+  \item{steps}{An integer setting the initial number of steps for the search algorithm.}
+  \item{searchwidth}{A numeric specifying the step width for the search algorithm.}
+}
+
+\details{xxx
+
+Available \code{method}s are: \code{Mood} for the classical region described in Mood (1950); \code{large} for the large-sample approximation region described in section 4.1 of Arnold & Shavelle (1998); \code{plugin} for a plug-in variant of the large-sample approximation region described in section 4.2 of Arnold & Shavelle (1998); \code{pluginF} for the plug-in variant of the large-sample approximation region described in section 4.3 of Arnold & Shavelle (1998) using an asymptotic F distribution as in Douglas (1993); \code{LRT} for the likelihood ratio test region described in section 4.4 of Arnold & Shavelle (1998).
+}
+
+\value{A graphical display of a (simultaneous) confidence set in two dimensions.}
+
+\references{
+Barry C. Arnold & Robert M. Shaville (1998) Joint confidence sets for the mean and variance of a normal distribution. The American Statistician, 52(2), 133--140.
+
+J. B. Douglas (1993) Confidence regions for parameter pairs. The American Statistician, 47(1), 43--45.
+
+Alexander M. Mood (1950) Introduction to the Theory of Statistics. McGraw-Hill, New York, NY.
+}
+
+\author{Philip Pallmann (\email{p.pallmann@lancaster.ac.uk})}
+
+\note{x}
+
+\seealso{x % objects to See Also as \code{\link{help}}
+}
+
+\examples{
+# Generate normal data
+
+mydata <- rnorm(n=50)
+
+# Plot simultaneous 90% confidence regions
+
+#plotMV2D(dat=mydata, method="Mood", alpha=0.1, main="Mood")
+#plotMV2D(dat=mydata, method="large", alpha=0.1, main="Large-sample")
+#plotMV2D(dat=mydata, method="plugin", alpha=0.1, main="Plug-in")
+#plotMV2D(dat=mydata, method="pluginF", alpha=0.1, main="Plug-in (F distribution)")
+#plotMV2D(dat=mydata, method="LRT", alpha=0.1, main="LR test")
+}
+
+\keyword{multivariate}
