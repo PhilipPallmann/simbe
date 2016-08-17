@@ -1,2 +1,7 @@
 exportPattern("^[[:alpha:]]+")
-import(boot, KernSmooth)
+
+importFrom("boot", "boot")
+importFrom("graphics", "par", "plot", "points", "polygon", "rect", "segments")
+importFrom("grDevices", "chull")
+importFrom("KernSmooth", "bkde2D", "dpik")
+importFrom("stats", "qchisq", "qf", "qnorm", "qt", "rf", "var")

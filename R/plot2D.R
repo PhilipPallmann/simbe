@@ -20,10 +20,10 @@ plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
       return(c(mean(e[, 1]), mean(e[, 2])))
     } # werden 1. und 2. Spalte immer zusammen gesampelt?!
     
-    b <- boot::boot(dat, bivarmean, R=nboot)
+    b <- boot(dat, bivarmean, R=nboot)
     bdat <- as.data.frame(b$t)
     
-    kern <- KernSmooth::bkde2D(bdat, bandwidth=sapply(bdat, KernSmooth::dpik))
+    kern <- bkde2D(bdat, bandwidth=sapply(bdat, dpik))
     
     alphasum <- sum(kern$fhat) * alpha
     
