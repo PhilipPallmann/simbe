@@ -1,5 +1,6 @@
 plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
-                   axnames=NULL, main="Title", col="black", steps=400, searchwidth=8, nboot=1e4){
+                   axnames=NULL, main="Title", col="black", steps=400, searchwidth=8,
+                   nboot=1e4, TsengBrownA=1, TsengBrownB=1){
   
   if(ncol(dat)!=2){
     stop("Data must be bivariate.")
@@ -8,7 +9,7 @@ plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
   dat <- as.data.frame(dat)
   
   method <- match.arg(method, choices=c("bootkern", "casella", "expanded", "fixseq", "hotelling", "limacon.asy",
-                                        "limacon.fin", "standard.cor", "standard.ind", "tost", "tseng"))
+                                        "limacon.fin", "standard.cor", "standard.ind", "tost", "tseng", "tseng.brown"))
   
   if(method=="bootkern"){
     
@@ -359,8 +360,36 @@ plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
     crFinal <- cbind(grid, findcrTse)[findcrTse==1, ]
     
   }
+  
+  if(method=="tseng.brown"){
     
-  if(method %in% c("casella", "hotelling", "limacon.asy", "limacon.fin", "standard.cor", "standard.ind", "tseng")){
+    n <- nrow(dat)
+    df <- n - 1
+    
+    est <- matrix(colMeans(dat), 2)
+    poolvar <- var(as.vector(as.matrix(dat)))
+    s2 <- poolvar / n
+    
+    togrid <- list()
+    
+    for(i in 1:2){
+      togrid[[i]] <- seq(est[i] - searchwidth * poolvar, est[i] + searchwidth * poolvar, length.out=steps)
+    }
+    
+    grid <- expand.grid(togrid)
+    
+    findcrTse <- apply(grid, 1, function(x){
+      theta <- x
+      (sqrt(sum((est - theta * (1 + (1/(A + B * (sqrt(sum(theta^2))^2)))))^2))^2) <
+        qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(A + B * (sqrt(sum(theta^2))^2)))^2))
+    })
+    
+    crFinal <- cbind(grid, findcrTse)[findcrTse==1, ]
+    
+  }
+    
+  if(method %in% c("casella", "hotelling", "limacon.asy", "limacon.fin",
+                   "standard.cor", "standard.ind", "tseng", "tseng.brown")){
     
     if(min(crFinal[, 1])==min(grid[, 1]) | max(crFinal[, 1])==max(grid[, 1]) |
          min(crFinal[, 2])==min(grid[, 2]) | max(crFinal[, 2])==max(grid[, 2])){

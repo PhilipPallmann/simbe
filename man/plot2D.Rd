@@ -7,7 +7,8 @@
 \description{Creates graphs of (simultaneous) confidence regions and intervals around multivariate normal means using different methods for computing the confidence sets.}
 
 \usage{plot2D(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
-       axnames=NULL, main="Title", col="black", steps=400, searchwidth=8, nboot=1e4)}
+       axnames=NULL, main="Title", col="black", steps=400, searchwidth=8,
+       nboot=1e4, TsengBrownA=1, TsengBrownB=1)}
 
 \arguments{
   \item{dat}{A matrix or data.frame with independent units in rows and multivariate outcomes in columns. It must have two columns.}
@@ -16,16 +17,18 @@
   \item{equi}{A numeric value specifying the equivalence region to be shaded in grey. The value itself defines the upper equivalence threshold and its inverse the lower threshold. When set to \code{NULL} no equivalence region is drawn. Default is \code{1.25}.}
   \item{plotrange}{A numeric vector of length two specifying the plotting area in both directions (x and y). Default is \code{c(0.77, 1.3)}.}
   \item{axnames}{A vector of two character strings giving the x and y axis labels. When set to \code{NULL} the column names of \code{dat} are used as axis labels. Default is \code{NULL}.}
-  \item{main}{A character string giving the plot title. Default is \code{NULL}.}
-  \item{col}{A character string specifying the colour of the plotted region or intervals. Default is \code{black}.}
+  \item{main}{A character string giving the plot title.}
+  \item{col}{A character string specifying the colour of the plotted region or intervals.}
   \item{steps}{An integer setting the initial number of steps for the search algorithm.}
   \item{searchwidth}{A numeric specifying the step width for the search algorithm.}
   \item{nboot}{An integer giving the number of bootstrap replications, which is only required for \code{method="bootkern"}. Default is 10000.}
+  \item{TsengBrownA}{A numeric giving the parameter A to be used when \code{method="tseng.brown"} (ignored otherwise). Default is \code{1}.}
+  \item{TsengBrownB}{A numeric giving the parameter B to be used when \code{method="tseng.brown"} (ignored otherwise). Default is \code{1}.}
 }
 
 \details{xxx
 
-Available \code{method}s are: \code{casella} for the empirical Bayes region described in Casella & Hwang (1983); \code{expanded} for the two one-sided test (TOST) procedure (Schuirmann 1987) using the expanded intervals described e.g., in Bofinger (1992) and Hsu et al. (1994); \code{fixseq} for the fixed sequence intervals described in Maurer et al (1995) and Hsu & Berger (1999); \code{hotelling} for the Hotelling-type region described in Wang et al (1999); \code{limacon.asy} for the limacon-shaped mimimum expected volume region described in Brown et al (1995); \code{limacon.fin} for the finite-sample variant of the minimum expected volume region described in Berger & Hsu (1996); \code{standard.cor} for the standard region incorporating correlation between parameters; \code{standard.ind} for the standard region ignoring correlation between parameters; \code{tost} for the two one-sided test (TOST) intervals described in Schuirmann (1987); \code{tseng} for the mimimum expected interval length region described in Tseng (2002). See also an overview and comparison of all methods in Pallmann & Jaki (2016).
+Available \code{method}s are: \code{casella} for the empirical Bayes region described in Casella & Hwang (1983); \code{expanded} for the two one-sided test (TOST) procedure (Schuirmann 1987) using the expanded intervals described e.g., in Bofinger (1992) and Hsu et al. (1994); \code{fixseq} for the fixed sequence intervals described in Maurer et al (1995) and Hsu & Berger (1999); \code{hotelling} for the Hotelling-type region described in Wang et al (1999); \code{limacon.asy} for the limacon-shaped mimimum expected volume region described in Brown et al (1995); \code{limacon.fin} for the finite-sample variant of the minimum expected volume region described in Berger & Hsu (1996); \code{standard.cor} for the standard region incorporating correlation between parameters; \code{standard.ind} for the standard region ignoring correlation between parameters; \code{tost} for the two one-sided test (TOST) intervals described in Schuirmann (1987); \code{tseng} for the mimimum expected interval length region described in Tseng (2002); \code{tseng.brown} for the pseudo-empirical Bayes region described in Tseng & Brown (1997). See also an overview and comparison of all methods in Pallmann & Jaki (2016).
 
 bootkern
 }
@@ -54,6 +57,8 @@ Philip Pallmann & Thomas Jaki (2016) Simultaneous confidence regions and interva
 Donald J. Schuirmann (1987) A comparison of the two one-sided tests procedure and the power approach for assessing the equivalence of average bioavailability. Journal of Pharmacokinetics and Biopharmaceutics, 15(6), 657--680.
 
 Yu-Ling Tseng (2002) Optimal confidence sets for testing average bioequivalence. Test, 11(1), 127--141.
+
+Yu-Ling Tseng & Lawrence D. Brown (1997) Good exact confidence sets for a multivariate normal mean. The Annals of Statistics, 25(5), 2228--2258.
 
 Weizhen Wang, J. T. Gene Hwang, Anirban DasGupta (1999) Statistical tests for multivariate bioequivalence. Biometrika, 86(2), 395--402.
 
