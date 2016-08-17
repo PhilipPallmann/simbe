@@ -5,9 +5,9 @@ plotMV2D <- function(dat, method, alpha=0.1, axnames=c("Mean", "Variance"),
     stop("dat must be a vector of numeric values.")
   }
   
-  method <- match.arg(method, choices=c("Mood", "large", "plugin", "pluginF", "LRT"))
+  method <- match.arg(method, choices=c("mood", "large", "plugin", "pluginF", "lrt"))
   
-  if(method=="Mood"){
+  if(method=="mood"){
     
     n <- length(dat)
     df <- n - 1
@@ -91,7 +91,7 @@ plotMV2D <- function(dat, method, alpha=0.1, axnames=c("Mean", "Variance"),
     
   }
   
-  if(method=="LRT"){
+  if(method=="lrt"){
     
     n <- length(dat)
     df <- n - 1

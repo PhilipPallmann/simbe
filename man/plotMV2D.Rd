@@ -22,7 +22,7 @@
 
 \details{xxx
 
-Available \code{method}s are: \code{Mood} for the classical region described in Mood (1950); \code{large} for the large-sample approximation region described in section 4.1 of Arnold & Shavelle (1998); \code{plugin} for a plug-in variant of the large-sample approximation region described in section 4.2 of Arnold & Shavelle (1998); \code{pluginF} for the plug-in variant of the large-sample approximation region described in section 4.3 of Arnold & Shavelle (1998) using an asymptotic F distribution as in Douglas (1993); \code{LRT} for the likelihood ratio test region described in section 4.4 of Arnold & Shavelle (1998).
+Available \code{method}s are: \code{mood} for the classical region described in Mood (1950); \code{large} for the large-sample approximation region described in section 4.1 of Arnold & Shavelle (1998); \code{plugin} for a plug-in variant of the large-sample approximation region described in section 4.2 of Arnold & Shavelle (1998); \code{pluginF} for the plug-in variant of the large-sample approximation region described in section 4.3 of Arnold & Shavelle (1998) using an asymptotic F distribution as in Douglas (1993); \code{lrt} for the likelihood ratio test region described in section 4.4 of Arnold & Shavelle (1998).
 }
 
 \value{A graphical display of a (simultaneous) confidence set in two dimensions.}
@@ -49,11 +49,11 @@ mydata <- rnorm(n=50)
 
 # Plot simultaneous 90% confidence regions
 
-#plotMV2D(dat=mydata, method="Mood", alpha=0.1, main="Mood")
+#plotMV2D(dat=mydata, method="mood", alpha=0.1, main="Mood")
 #plotMV2D(dat=mydata, method="large", alpha=0.1, main="Large-sample")
 #plotMV2D(dat=mydata, method="plugin", alpha=0.1, main="Plug-in")
 #plotMV2D(dat=mydata, method="pluginF", alpha=0.1, main="Plug-in (F distribution)")
-#plotMV2D(dat=mydata, method="LRT", alpha=0.1, main="LR test")
+#plotMV2D(dat=mydata, method="lrt", alpha=0.1, main="Likelihood ratio test")
 }
 
 \keyword{multivariate}
