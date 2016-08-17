@@ -850,8 +850,8 @@ confset <- function(dat, method, alpha=0.1, steps=100, TsengBrownA=1, TsengBrown
     
     findcrTse <- apply(grid, 1, function(x){
       theta <- x
-      (sqrt(sum((est - theta * (1 + (1/(A + B * (sqrt(sum(theta^2))^2)))))^2))^2) <
-        qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(A + B * (sqrt(sum(theta^2))^2)))^2))
+      (sqrt(sum((est - theta * (1 + (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))))^2))^2) <
+        qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))^2))
     })
     
     crTse <- cbind(grid, findcrTse)[findcrTse==1, ]
@@ -880,8 +880,8 @@ confset <- function(dat, method, alpha=0.1, steps=100, TsengBrownA=1, TsengBrown
         
         findcrTse2 <- apply(grid2, 1, function(x){
           theta <- x
-          (sqrt(sum((est - theta * (1 + (1/(A + B * (sqrt(sum(theta^2))^2)))))^2))^2) <
-            qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(A + B * (sqrt(sum(theta^2))^2)))^2))
+          (sqrt(sum((est - theta * (1 + (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))))^2))^2) <
+            qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))^2))
         })
         
         crTse2 <- cbind(grid2, findcrTse2)[findcrTse2==1, ]
@@ -899,8 +899,8 @@ confset <- function(dat, method, alpha=0.1, steps=100, TsengBrownA=1, TsengBrown
           
           findcrTse3 <- apply(grid3, 1, function(x){
             theta <- x
-            (sqrt(sum((est - theta * (1 + (1/(A + B * (sqrt(sum(theta^2))^2)))))^2))^2) <
-              qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(A + B * (sqrt(sum(theta^2))^2)))^2))
+            (sqrt(sum((est - theta * (1 + (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))))^2))^2) <
+              qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))^2))
           })
           
           crTse3 <- cbind(grid3, findcrTse3)[findcrTse3==1, ]
@@ -933,8 +933,8 @@ confset <- function(dat, method, alpha=0.1, steps=100, TsengBrownA=1, TsengBrown
         
         FindcrTse <- apply(Grid, 1, function(x){
           theta <- x
-          (sqrt(sum((est - theta * (1 + (1/(A + B * (sqrt(sum(theta^2))^2)))))^2))^2) <
-            qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(A + B * (sqrt(sum(theta^2))^2)))^2))
+          (sqrt(sum((est - theta * (1 + (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))))^2))^2) <
+            qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))^2))
         })
         
         CrTse <- cbind(Grid, FindcrTse)[FindcrTse==1, ]

@@ -380,8 +380,8 @@ plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
     
     findcrTse <- apply(grid, 1, function(x){
       theta <- x
-      (sqrt(sum((est - theta * (1 + (1/(A + B * (sqrt(sum(theta^2))^2)))))^2))^2) <
-        qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(A + B * (sqrt(sum(theta^2))^2)))^2))
+      (sqrt(sum((est - theta * (1 + (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))))^2))^2) <
+        qchisq(p=alpha, df=2, ncp=((sqrt(sum(theta^2))^2) * (1/(TsengBrownA + TsengBrownB * (sqrt(sum(theta^2))^2)))^2))
     })
     
     crFinal <- cbind(grid, findcrTse)[findcrTse==1, ]

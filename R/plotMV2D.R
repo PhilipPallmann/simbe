@@ -120,7 +120,7 @@ plotMV2D <- function(dat, method, alpha=0.1, axnames=c("Mean", "Variance"),
   ylims <- range(grid[, 2])
   
   par(mar=c(5, 5, 4, 2))
-  plot(0, xlim=xlims, ylim=ylims, las=1, xlab=axisnames[1], ylab=axisnames[2],
+  plot(0, xlim=xlims, ylim=ylims, las=1, xlab=axnames[1], ylab=axnames[2],
        cex.main=2.5, cex.axis=1.5, cex.lab=1.7, main=main)
   polygon(crFinal[chull(crFinal[, -3]), -3], col=col, border=col)
   points(mea, s^2, pch=19, col="white")
