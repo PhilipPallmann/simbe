@@ -387,9 +387,33 @@ plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
     crFinal <- cbind(grid, findcrTse)[findcrTse==1, ]
     
   }
+  
+  if(method %in% c("casella", "hotelling", "standard.cor", "standard.ind")){
     
-  if(method %in% c("casella", "hotelling", "limacon.asy", "limacon.fin",
-                   "standard.cor", "standard.ind", "tseng", "tseng.brown")){
+    if(min(crFinal[, 1])==min(grid[, 1]) | max(crFinal[, 1])==max(grid[, 1]) |
+         min(crFinal[, 2])==min(grid[, 2]) | max(crFinal[, 2])==max(grid[, 2])){
+      warning("The search grid is too narrow, please increase searchwidth.")
+    }
+    
+    if(is.null(axnames)==TRUE){
+      axisnames <- colnames(dat)
+    }else{
+      axisnames <- axnames
+    }
+    
+    par(mar=c(5, 5, 4, 2))
+    plot(0, xlim=log(plotrange), ylim=log(plotrange), las=1, xlab=axisnames[1], ylab=axisnames[2],
+         cex.main=2.5, cex.axis=1.5, cex.lab=1.7, main=main)
+    if(is.null(equi)==FALSE){
+      rect(log(1/equi), log(1/equi), log(equi), log(equi), col="gray95", border=NA)
+    }
+    polygon(crFinal[chull(crFinal[, -3]), -3], col=col, border=col)
+    points(est[1], est[2], pch=19, col="white")
+    par(mar=c(5, 4, 4, 2))
+    
+  }
+  
+  if(method %in% c("limacon.asy", "limacon.fin", "tseng", "tseng.brown")){
     
     if(min(crFinal[, 1])==min(grid[, 1]) | max(crFinal[, 1])==max(grid[, 1]) |
          min(crFinal[, 2])==min(grid[, 2]) | max(crFinal[, 2])==max(grid[, 2])){
