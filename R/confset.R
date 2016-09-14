@@ -1,9 +1,9 @@
 confset <- function(dat, method, alpha=0.1, steps=100, TsengBrownA=1, TsengBrownB=1){
   
-  method <- match.arg(method, choices=c("bootkern", "casella", "hotelling", "limacon.asy", "limacon.fin",
+  method <- match.arg(method, choices=c("bootkern", "emp.bayes", "hotelling", "limacon.asy", "limacon.fin",
                                         "standard.cor", "standard.ind", "tseng", "tseng.brown")) 
   
-  if(method=="casella"){
+  if(method=="emp.bayes"){
     
     n <- nrow(dat)
     p <- ncol(dat)

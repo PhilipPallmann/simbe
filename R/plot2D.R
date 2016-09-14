@@ -8,7 +8,7 @@ plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
   
   dat <- as.data.frame(dat)
   
-  method <- match.arg(method, choices=c("bootkern", "casella", "expanded", "fixseq", "hotelling", "limacon.asy",
+  method <- match.arg(method, choices=c("bootkern", "emp.bayes", "expanded", "fixseq", "hotelling", "limacon.asy",
                                         "limacon.fin", "standard.cor", "standard.ind", "tost", "tseng", "tseng.brown"))
   
   if(method=="bootkern"){
@@ -59,7 +59,7 @@ plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
     
   }
   
-  if(method=="casella"){
+  if(method=="emp.bayes"){
     
     n <- nrow(dat)
     df <- n - 1
@@ -388,7 +388,7 @@ plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
     
   }
   
-  if(method %in% c("casella", "hotelling", "standard.cor", "standard.ind")){
+  if(method %in% c("emp.bayes", "hotelling", "standard.cor", "standard.ind")){
     
     if(min(crFinal[, 1])==min(grid[, 1]) | max(crFinal[, 1])==max(grid[, 1]) |
          min(crFinal[, 2])==min(grid[, 2]) | max(crFinal[, 2])==max(grid[, 2])){
