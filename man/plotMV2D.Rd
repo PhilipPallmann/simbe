@@ -6,11 +6,12 @@
 
 \description{Creates graphs of (simultaneous) confidence regions for the mean and variance of a normal distribution using different methods.}
 
-\usage{plotMV2D(dat, method, alpha=0.1, axnames=c("Mean", "Variance"),
+\usage{plotMV2D(dat, n, method, alpha=0.1, axnames=c("Mean", "Variance"),
                 main="Title", col="black", steps=400, searchwidth=1)}
 
 \arguments{
-  \item{dat}{A vector of numeric values assumed to follow a normal distribution.}
+  \item{dat}{A vector of numeric values assumed to follow a normal distribution. Not required for \code{method="cheng.iles"} or "min.area".}
+  \item{n}{A numeric value giving the sample size. Only required for \code{method="cheng.iles"} or "min.area".}
   \item{method}{A character string specifying the method to be used. See details for available \code{method}s.}
   \item{alpha}{A numeric value giving the type I error level to be controlled. Default is \code{0.1}.}
   \item{axnames}{A vector of two character strings giving the x and y axis labels.}
