@@ -22,7 +22,7 @@
 
 \details{xxx
 
-Available \code{method}s are: \code{mood} for the classical region described in Mood (1950); \code{large} for the large-sample approximation region described in section 4.1 of Arnold & Shavelle (1998); \code{plugin} for a plug-in variant of the large-sample approximation region described in section 4.2 of Arnold & Shavelle (1998); \code{pluginF} for the plug-in variant of the large-sample approximation region described in section 4.3 of Arnold & Shavelle (1998) using an asymptotic F distribution as in Douglas (1993); \code{lrt} for the likelihood ratio test region described in section 4.4 of Arnold & Shavelle (1998).
+Available \code{method}s are: \code{mood} for the classical region described in Mood (1950); \code{large} for the large-sample approximation region described in section 4.1 of Arnold & Shavelle (1998); \code{plugin} for a plug-in variant of the large-sample approximation region described in section 4.2 of Arnold & Shavelle (1998); \code{pluginF} for the plug-in variant of the large-sample approximation region described in section 4.3 of Arnold & Shavelle (1998) using an asymptotic F distribution as in Douglas (1993); \code{lrt} for the likelihood ratio test region described in section 4.4 of Arnold & Shavelle (1998); \code{cheng.iles} for the xxxxx described in Cheng & Iles (1983); \code{min.area} for the minimum-area region described in Frey et al. (2009).
 }
 
 \value{A graphical display of a (simultaneous) confidence set in two dimensions.}
@@ -30,12 +30,16 @@ Available \code{method}s are: \code{mood} for the classical region described in 
 \references{
 Barry C. Arnold & Robert M. Shaville (1998) Joint confidence sets for the mean and variance of a normal distribution. The American Statistician, 52(2), 133--140.
 
+R. C. H. Cheng & T. C. Iles (1983) Confidence bands for cumulative distribution functions of continuous random variables. Technometrics, 25(1), 77--86.
+
 J. B. Douglas (1993) Confidence regions for parameter pairs. The American Statistician, 47(1), 43--45.
+
+Jesse Frey, Osvaldo Marrero, Douglas Norton (2009) Minimum-area confidence sets for a normal distribution. Journal of Statistical Planning and Inference, 139(3), 1023--1032.
 
 Alexander M. Mood (1950) Introduction to the Theory of Statistics. McGraw-Hill, New York, NY.
 }
 
-\author{Philip Pallmann (\email{p.pallmann@lancaster.ac.uk})}
+\author{Philip Pallmann (\email{p.pallmann@lancaster.ac.uk}) using code from xxxxx}
 
 \note{x}
 
@@ -54,6 +58,8 @@ mydata <- rnorm(n=50)
 #plotMV2D(dat=mydata, method="plugin", alpha=0.1, main="Plug-in")
 #plotMV2D(dat=mydata, method="pluginF", alpha=0.1, main="Plug-in (F distribution)")
 #plotMV2D(dat=mydata, method="lrt", alpha=0.1, main="Likelihood ratio test")
+
+# more examples with cheng.iles and min.area
 }
 
 \keyword{multivariate}
