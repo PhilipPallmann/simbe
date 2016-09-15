@@ -3,7 +3,7 @@ plotMV2D <- function(dat, n, method, alpha=0.1, axnames=c("Mean", "Variance"),
   
   method <- match.arg(method, choices=c("mood", "large", "plugin", "pluginF", "lrt", "cheng.iles", "min.area"))
   
-  if(methdod %in% c("mood", "large", "plugin", "pluginF", "lrt")){
+  if(method %in% c("mood", "large", "plugin", "pluginF", "lrt")){
     
     if(is.vector(dat)!=TRUE){
       stop("dat must be a vector of numeric values.")
