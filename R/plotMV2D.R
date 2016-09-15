@@ -249,7 +249,7 @@ plotMV2D <- function(dat, n, method, alpha=0.1, axnames=c("Mean", "Variance"),
         
       }
       
-      forgrid <- plotci(n=n, dcl=1 - alpha, int=1000)
+      forgrid <- plotcheng(n=n, dcl=1 - alpha, int=1000)
       grid <- cbind(c(forgrid$avec, -forgrid$avec), c(forgrid$bvec, forgrid$bvec))
       
     }
