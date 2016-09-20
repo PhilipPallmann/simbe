@@ -36,4 +36,12 @@ confints <- function(dat, method, alpha=0.1, steps=100){
     
   }
   
+  Out <- cbind(est, ci)
+  rownames(Out) <- colnames(dat)
+  colnames(Out) <- c("estimate", "lower", "upper")
+  
+  return(Out)
+  
 }
+
+confints(marzo[, 9:10], method="tost", alpha=0.1)
