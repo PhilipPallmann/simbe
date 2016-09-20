@@ -92,8 +92,10 @@ plot2D <- function(dat, method, alpha=0.1, equi=1.25, plotrange=c(0.77, 1.3),
     est <- matrix(colMeans(dat), 2)
     sd <- c(sd(dat[, 1]), sd(dat[, 2]))
     
-    ci <- c(min(0, est - sd * qt(1 - alpha, n - 1) / sqrt(n)),
-            max(0, est + sd * qt(1 - alpha, n - 1) / sqrt(n)))
+    ci <- matrix(c(est - sd * qt(1 - alpha, n - 1) / sqrt(n),
+                   est + sd * qt(1 - alpha, n - 1) / sqrt(n)), ncol(dat))
+    ci[, 1] <- ifelse(ci[, 1] > 0, 0, ci[, 1])
+    ci[, 2] <- ifelse(ci[, 2] < 0, 0, ci[, 2])
     
     if(is.null(axnames)==TRUE){
       axisnames <- colnames(dat)
