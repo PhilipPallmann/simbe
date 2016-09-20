@@ -43,5 +43,3 @@ confints <- function(dat, method, alpha=0.1, steps=100){
   return(Out)
   
 }
-
-confints(marzo[, 9:10], method="tost", alpha=0.1)
