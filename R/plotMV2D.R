@@ -1,7 +1,8 @@
-plotMV2D <- function(dat, n, method, alpha=0.1, axnames=c("Mean", "Variance"),
+plotMV2D <- function(dat, n, method, alpha=0.1, scale="var", axnames=c("Mean", "Variance"),
                      main="Title", col="black", steps=400, searchwidth=1){
   
   method <- match.arg(method, choices=c("mood", "large", "plugin", "pluginF", "lrt", "cheng.iles", "min.area"))
+  scale <- match.arg(scale, choices=c("var", "sd"))
   
   if(method %in% c("mood", "large", "plugin", "pluginF", "lrt")){
     
@@ -118,6 +119,10 @@ plotMV2D <- function(dat, n, method, alpha=0.1, axnames=c("Mean", "Variance"),
     if(min(crFinal[, 1])==min(grid[, 1]) | max(crFinal[, 1])==max(grid[, 1]) |
          min(crFinal[, 2])==min(grid[, 2]) | max(crFinal[, 2])==max(grid[, 2])){
       warning("The search grid is too narrow, please increase searchwidth.")
+    }
+    
+    if(scale=="sd"){
+      grid[, 2] <- sqrt(grid[, 2])
     }
     
     xlims <- range(grid[, 1])
