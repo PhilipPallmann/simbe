@@ -122,11 +122,11 @@ plotMV2D <- function(dat, n, method, alpha=0.1, scale="var", axnames=c("Mean", "
     }
     
     if(scale=="sd"){
-      grid[, 2] <- sqrt(grid[, 2])
+      crFinal[, 2] <- sqrt(crFinal[, 2])
     }
     
-    xlims <- range(grid[, 1])
-    ylims <- range(grid[, 2])
+    xlims <- range(crFinal[, 1])
+    ylims <- range(crFinal[, 2])
     
     par(mar=c(5, 5, 4, 2))
     plot(0, xlim=xlims, ylim=ylims, las=1, xlab=axnames[1], ylab=axnames[2],
