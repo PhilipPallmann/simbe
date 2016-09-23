@@ -63,7 +63,8 @@ plotMV2D <- function(dat, n, method, alpha=0.1, axnames=c("Mean", "Variance"),
       togrid <- list()
       togrid[[1]] <- seq(mea - qnorm(1 - alpha/16) * s / sqrt(n),
                          mea + qnorm(1 - alpha/16) * s / sqrt(n), length.out=steps)
-      togrid[[2]] <- seq(s^2 * n / qchisq(df=df, 1 - alpha/16), s^2 * n / qchisq(df=df, alpha/16), length.out=steps)
+      togrid[[2]] <- seq(s^2 * n / (searchwidth * qchisq(df=df, 1 - alpha/16)),
+                         s^2 * n / qchisq(df=df, alpha/16), length.out=steps)
       
       grid <- expand.grid(togrid)
       
@@ -83,7 +84,8 @@ plotMV2D <- function(dat, n, method, alpha=0.1, axnames=c("Mean", "Variance"),
       togrid <- list()
       togrid[[1]] <- seq(mea - qnorm(1 - alpha/16) * s / sqrt(n),
                          mea + qnorm(1 - alpha/16) * s / sqrt(n), length.out=steps)
-      togrid[[2]] <- seq(s^2 * n / qchisq(df=df, 1 - alpha/16), s^2 * n / qchisq(df=df, alpha/16), length.out=steps)
+      togrid[[2]] <- seq(s^2 * n / (searchwidth * qchisq(df=df, 1 - alpha/16)),
+                         s^2 * n / qchisq(df=df, alpha/16), length.out=steps)
       
       grid <- expand.grid(togrid)
       
