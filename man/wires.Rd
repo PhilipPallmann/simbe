@@ -23,15 +23,15 @@ Data from a study in quality control assessing the breaking strengths of 20 wire
 }
 
 \details{
-The data were taken from Table 4.1 of Nelson (2004).
+The data were taken from Table 4.1 of Nelson (1982).
 }
 
 \source{
-King 1971
+James R. King (1971) Probability Charts for Decision Making. Industrial Press, New York, NY.
 }
 
 \references{
-Wayne B. Nelson (2004) Applied Life Data Analysis. Wiley, Hoboken, NJ.
+Wayne B. Nelson (1982) Applied Life Data Analysis. Wiley, Hoboken, NJ.
 }
 
 \examples{
